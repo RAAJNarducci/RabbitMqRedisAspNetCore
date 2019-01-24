@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  apiteste:
+    image: ${DOCKER_REGISTRY-}apiteste
+    build:
+      context: .
+      dockerfile: ApiTeste/Dockerfile
+  redis:
+    image: redis:alpine
+    ports:
+      - "16379:6379"
+    
+networks:
+  default:
+    external:
+      name: apidevops

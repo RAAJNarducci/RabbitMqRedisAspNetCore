@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+   db:
+    image: "microsoft/mssql-server-linux"
+    volumes:
+      - ./volumes/sqlServer
+    ports:
+      - "11433:1433"
+    environment:
+      SA_PASSWORD: "DockerSql2017"
+      ACCEPT_EULA: "Y"
+   rabbit:
+    image: "rabbitmq:3-management"
+    hostname: "rabbit"
+    environment:
+        RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+        RABBITMQ_DEFAULT_USER: "rabbitmq"
+        RABBITMQ_DEFAULT_PASS: "rabbitmq"
+        RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+        - "15672:15672"
+        - "5672:5672"
+    labels:
+        NAME: "rabbit"
+    
+networks:
+  default:
+    external:
+      name: apidevops
