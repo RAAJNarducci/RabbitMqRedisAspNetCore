@@ -3,8 +3,10 @@ version: '3'
 services:
    db:
     image: "microsoft/mssql-server-linux"
-    volumes:
-      - ./volumes/sqlServer
+    container_name: sqlserver
+    # build:
+        # context: ./sql
+        # dockerfile: Dockerfile
     ports:
       - "11433:1433"
     environment:
@@ -12,6 +14,7 @@ services:
       ACCEPT_EULA: "Y"
    rabbit:
     image: "rabbitmq:3-management"
+    container_name: rabbit
     hostname: "rabbit"
     environment:
         RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"

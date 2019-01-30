@@ -1,0 +1,11 @@
+{
+	"log_level": "DEBUG",
+	"data_dir": "/data",
+	"leave_on_terminate": true,
+	"client_addr": "0.0.0.0",
+	"dns_config": {
+		"allow_stale": true,
+		"max_stale": "1s"
+	},
+	"ui": true
+}

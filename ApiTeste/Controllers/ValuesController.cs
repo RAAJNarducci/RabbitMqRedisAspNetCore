@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace ApiTeste.Controllers
 {
@@ -12,6 +13,11 @@ namespace ApiTeste.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly ILogger _logger;
+        public ValuesController(ILogger<ValuesController> logger)
+        {
+            _logger = logger;
+        }
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<Estado>> Get()
@@ -34,6 +40,7 @@ namespace ApiTeste.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
+            _logger.LogInformation(1002, "Get {id}", id);
             return "value";
         }
 
