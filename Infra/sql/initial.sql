@@ -1,4 +1,6 @@
-﻿USE ExemplosDapper
+﻿CREATE DATABASE ExemplosDapper
+GO
+USE [ExemplosDapper]
 GO
 
 CREATE TABLE dbo.Regioes(

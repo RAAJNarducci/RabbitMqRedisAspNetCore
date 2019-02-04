@@ -22,25 +22,27 @@ namespace ApiTeste.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Estado>> Get()
         {
-            var connection = @"Server=db;Database=ExemplosDapper;User=SA;Password=DockerSql2017;";
-            IEnumerable<Estado> estados;
-            using (SqlConnection conexao = new SqlConnection(connection))
-            {
-                estados = conexao.Query<Estado>(
-                    "SELECT E.SiglaEstado, E.NomeEstado, E.NomeCapital, " +
-                           "R.NomeRegiao " +
-                    "FROM dbo.Estados E " +
-                    "INNER JOIN dbo.Regioes R ON R.IdRegiao = E.IdRegiao " +
-                    "ORDER BY E.NomeEstado");
-            }
-            return Ok(estados);
+            _logger.LogError("Hakuna matata");
+            return Ok();
+            //var connection = @"Server=db;Database=ExemplosDapper;User=SA;Password=DockerSql2017;";
+            //IEnumerable<Estado> estados;
+            //using (SqlConnection conexao = new SqlConnection(connection))
+            //{
+            //    estados = conexao.Query<Estado>(
+            //        "SELECT E.SiglaEstado, E.NomeEstado, E.NomeCapital, " +
+            //               "R.NomeRegiao " +
+            //        "FROM dbo.Estados E " +
+            //        "INNER JOIN dbo.Regioes R ON R.IdRegiao = E.IdRegiao " +
+            //        "ORDER BY E.NomeEstado");
+            //}
+            //return Ok(estados);
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            _logger.LogInformation(1002, "Get {id}", id);
+            _logger.LogError("Erro");
             return "value";
         }
 
