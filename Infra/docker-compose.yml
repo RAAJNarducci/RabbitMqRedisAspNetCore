@@ -9,6 +9,11 @@ services:
         dockerfile: Dockerfile
     ports:
       - "11433:1433"
+   mongo:
+    image: "mongo"
+    container_name: mongo
+    ports:
+       - "17017:27017"   
    rabbit:
     image: "rabbitmq:3-management"
     container_name: rabbit
